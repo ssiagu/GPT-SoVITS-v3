@@ -846,7 +846,7 @@ with gr.Blocks(title="GPT-SoVITS WebUI") as app:
                     label=i18n("参考音频的语种"), choices=list(dict_language.keys()), value=i18n("中文"),
                 )
                 inp_refs = gr.File(label=i18n("可选项：通过拖拽多个文件上传多个参考音频（建议同性），平均融合他们的音色。如不填写此项，音色由左侧单个参考音频控制。如是微调模型，建议参考音频全部在微调训练集音色内，底模不用管。"),file_count="multiple")if model_version!="v3"else gr.File(label=i18n("可选项：通过拖拽多个文件上传多个参考音频（建议同性），平均融合他们的音色。如不填写此项，音色由左侧单个参考音频控制。如是微调模型，建议参考音频全部在微调训练集音色内，底模不用管。"),file_count="multiple",visible=False)
-                sample_steps = gr.Radio(label=i18n("采样步数,如果觉得电,提高试试,如果觉得慢,降低试试"),value=32,choices=[4,8,16,32],visible=True)if model_version=="v3"else gr.Radio(label=i18n("采样步数,如果觉得电,提高试试,如果觉得慢,降低试试"),value=8,choices=[4,8,16,32],visible=False)
+                sample_steps = gr.Radio(label=i18n("采样步数,如果觉得电,提高试试,如果觉得慢,降低试试"),value=64,choices=[4,8,16,32,64],visible=True)if model_version=="v3"else gr.Radio(label=i18n("采样步数,如果觉得电,提高试试,如果觉得慢,降低试试"),value=8,choices=[4,8,16,32],visible=False)
         gr.Markdown(html_center(i18n("*请填写需要合成的目标文本和语种模式"),'h3'))
         with gr.Row():
             with gr.Column(scale=13):
